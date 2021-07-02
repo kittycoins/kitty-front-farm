@@ -61,7 +61,7 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
         // }
         const cakeRewardPerBlock = new BigNumber(farm.meowPerBlock || 1)
           .times(new BigNumber(farm.poolWeight))
-          .div(new BigNumber(10).pow(6))
+          .div(new BigNumber(10).pow(9))
         const cakeRewardPerYear = cakeRewardPerBlock.times(BLOCKS_PER_YEAR)
 
         let apy = cakePrice.times(cakeRewardPerYear)

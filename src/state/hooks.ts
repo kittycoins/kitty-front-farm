@@ -75,12 +75,12 @@ export const usePriceBnbBusd = (): BigNumber => {
 
 export const usePriceCakeBusd = (): BigNumber => {
   // const pid = 1 // CAKE-BNB LP
-  // const bnbPriceUSD = usePriceBnbBusd()
+  const bnbPriceUSD = usePriceBnbBusd()
   // const farm = useFarmFromPid(pid)
   // return farm.tokenPriceVsQuote ? bnbPriceUSD.times(farm.tokenPriceVsQuote) : ZERO
-  const pid = 1 // KITTY-BUSD LP
+  const pid = 2 // KITTY-BUSD LP
   const farm = useFarmFromPid(pid)
-  return farm.tokenPriceVsQuote ? new BigNumber(farm.tokenPriceVsQuote) : ZERO
+  return (farm.tokenPriceVsQuote ? new BigNumber(farm.tokenPriceVsQuote) : ZERO).multipliedBy(bnbPriceUSD);
 }
 
 export const useTotalValue = (): BigNumber => {
